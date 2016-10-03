@@ -1,0 +1,8 @@
+trusty:
+  pkgs:
+    - strongswan
+  service: strongswan
+xenial:
+  pkgs:
+    - strongswan
+  service: strongswan

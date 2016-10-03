@@ -1,0 +1,8 @@
+{% import_yaml 'strongswan/defaults.yaml' as defaults %}
+{% import_yaml 'strongswan/oscodename.yaml' as oscodename_map %}
+
+{% set oscodename = salt['grains.filter_by'](oscodename_map, grain='oscodename') %}
+
+{% do defaults.strongswan.update(oscodename) %}
+
+{% set strongswan = salt['pillar.get']( 'strongswan', default=defaults.strongswan, merge=True) %}

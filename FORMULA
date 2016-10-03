@@ -1,0 +1,9 @@
+name: strongswan
+os: Ubuntu
+os_family: Debian
+version: 201609
+release: 1
+summary: StrongSwan saltstack formula
+description: StrongSwan saltstack formula
+top_level_dir: strongswan
+recommended: 

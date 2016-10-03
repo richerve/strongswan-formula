@@ -1,0 +1,21 @@
+### Configuration managed by Saltstack
+
+{% if config.setup is defined -%}
+config setup
+  {%- for conf, value in config.setup.iteritems() %}
+      {{ conf }}={{ value }}
+  {%- endfor %}
+{% endif %}
+
+{%- if connections is defined %}
+  {%- for conn, options in connections.iteritems() %}
+    {%- if conn == "default" %}
+conn %{{ conn }}
+    {%- else %}
+conn {{ conn }}
+    {%- endif %}
+    {%- for o, v in options.iteritems() %}
+      {{ o }}={{ v }}
+    {%- endfor %}
+  {% endfor %}
+{%- endif %}
